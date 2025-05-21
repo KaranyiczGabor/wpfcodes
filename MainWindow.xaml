@@ -1,0 +1,48 @@
+﻿<Window x:Class="furdok.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:furdok"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Panel -->
+        <StackPanel Grid.Column="0" Margin="10">
+            <TextBlock Text="Fürdő adatai" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" />
+
+            <TextBlock Text="Név" />
+            <TextBox Name="txtNev" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Cím" />
+            <TextBox Name="txtCim" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Ár" />
+            <TextBox Name="txtAr" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Vízhőfok" />
+            <TextBox Name="txtVizhofok" Margin="0,0,0,10"/>
+
+            <ProgressBar Name="pbVizhofok" Height="20" Margin="0,0,0,10" Minimum="0" Maximum="100" Value="65" />
+
+            <Button Content="Mentés" Height="30" Width="100" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <!-- Right Panel -->
+        <ListView Grid.Column="1" Name="lvFurdoLista" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Név" Width="200" DisplayMemberBinding="{Binding Nev}" />
+                    <GridViewColumn Header="Cím" Width="250" DisplayMemberBinding="{Binding Cim}" />
+                    <GridViewColumn Header="Ár" Width="60" DisplayMemberBinding="{Binding Ar}" />
+                    <GridViewColumn Header="Vízhőfok" Width="70" DisplayMemberBinding="{Binding Vizhofok}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
